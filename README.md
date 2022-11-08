@@ -33,19 +33,19 @@ Aby zrealizować analogiczne działanie w oparciu o własne, publiczne repozytor
 
 Aby zbudować obrazu za pomocą Buildkit w taki sposób, że cache jest przechowywany lokalnie, a tryb jego eksportowania to max należy wykorzystać polecenie ```buildctl build --ssh default="/home/nikes/.ssh/id_ed25519" --frontend=gateway.v0 --opt source=docker/dockerfile --local context=. --local dockerfile=. --opt filename=./Simpleweb/Dockerfile_test3 --export-cache type=local,dest=.,mode=max```.
 
-![Dodatkowe_01.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/Dodatkowe_01.png)
+![ZadanieDodatkowe_01.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/ZadanieDodatkowe_01.png)
 
 Aby wyczyścić cache należy wykorzystać polecenie ```buildctl prune```.
 
 Aby zbudować obraz wykorzystując zapisane wcześniej lokalne dane z budowy obrazu należy wykorzystać polecenie ```buildctl build --ssh default="/home/nikes/.ssh/id_ed25519" --frontend=gateway.v0 --opt source=docker/dockerfile --local context=. --local dockerfile=. --opt filename=./Simpleweb/Dockerfile_test3 --import-cache type=local,src=.```.
 
-![Dodatkowe_02.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/Dodatkowe_02.png)
+![ZadanieDodatkowe_02.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/ZadanieDodatkowe_02.png)
 
 Aby zrealizować analogiczne działanie, ale w trybie eksportowania cache min należy wykorzystać polecenia ```buildctl build --ssh default="/home/nikes/.ssh/id_ed25519" --frontend=gateway.v0 --opt source=docker/dockerfile --local context=. --local dockerfile=. --opt filename=./Simpleweb/Dockerfile_test3 --export-cache type=local,dest=.,mode=min```, ```buildctl prune``` i ```buildctl build --ssh default="/home/nikes/.ssh/id_ed25519" --frontend=gateway.v0 --opt source=docker/dockerfile --local context=. --local dockerfile=. --opt filename=./Simpleweb/Dockerfile_test3 --import-cache type=local,src=.```.
 
-![Dodatkowe_03.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/Dodatkowe_03.png)
-![Dodatkowe_04.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/Dodatkowe_04.png)
+![ZadanieDodatkowe_03.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/ZadanieDodatkowe_03.png)
+![ZadanieDodatkowe_04.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/ZadanieDodatkowe_04.png)
 
-![Dodatkowe_05.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/Dodatkowe_05.png)
+![ZadanieDodatkowe_05.png](https://github.com/TheNikesz/simple-web-app-2/blob/main/Screens/ZadanieDodatkowe_05.png)
 
 Tryby eksportowania różnią się tym, iż w trybie min eksportowane są tylko warstwy wynikowego obrazu, natomiast w trybie max wszystkie warstwy z wszystkich etapów pośrednich.
